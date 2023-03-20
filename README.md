@@ -1,4 +1,4 @@
-**OmegaTaskTracker**
+**TaskTracker**
 
 Popis projektu: TaskTracker je jednoduchá aplikace pro správu úkolů, která umožňuje uživatelům snadno organizovat své úkoly a sledovat jejich stav. Uživatelé mohou vytvářet nové úkoly, nastavovat termíny splnění, přiřazovat úkoly kategoriím a sledovat pokrok pomocí grafů a statistik. Aplikace také umožňuje uživatelům sdílet své úkoly s kolegy a spolupracovat na jejich dokončení.
 
