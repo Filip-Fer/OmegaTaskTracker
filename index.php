@@ -1,3 +1,4 @@
-<body>
-    <h1>Hello, world!</h1>
-</body>
+<main>
+  <h1>Your new task manager</h1>
+  <a href="login.php">Přihlášení</a>
+</main>
