@@ -47,7 +47,7 @@ if (isset($_SESSION['user_id'])) {
       echo "<li class=\"list-group-item list-group-item-secondary\">";
       echo "<div class=\"form-check\">";
       echo "<input class=\"form-check-input\" type=\"checkbox\" id=\"$id\" name=\"tasks[]\" value=\"\">";
-      echo "<label class=\"form-check-label\" for=\"$id\">";
+      echo "<label class=\"form-check-label\" for=\"$id\">Zaškrtněte po splnění";
       echo "</div>"
 
   ?>
@@ -113,8 +113,8 @@ if (mysqli_num_rows($result) > 0) {
 
         echo "<li class=\"list-group-item list-group-item-secondary\">";
         echo "<div class=\"form-check\">";
-        echo "<input type=\"checkbox\" id=\"$id\" name=\"tasks[]\" value=\"\">";
-        echo "<label for=\"$id\">";
+        echo "<input class=\"form-check-input\" type=\"checkbox\" id=\"$id\" name=\"tasks[]\" value=\"\">";
+        echo "<label class=\"form-check-label\" for=\"$id\">Zaškrtněte po splnění";
         echo "</div>"
 
 ?>

@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
 
     <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom bg-dark">
-      <a href="/" class="d-flex align-items-center text-white text-decoration-none" style="padding-right: 32px;">
+      <a href="tasks.php" class="d-flex align-items-center text-white text-decoration-none" style="padding-right: 32px;">
         <h1 class="fs-1">TODO Tracker</h1>
       </a>
 
