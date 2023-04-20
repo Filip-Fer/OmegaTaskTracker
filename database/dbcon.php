@@ -6,6 +6,9 @@ class DatabaseConnection {
     private $database;
     private $connection;
 
+    /**
+     * Konstruktor pro třídu DatabaseConnection
+     */
     public function __construct() {
         $this->host = "localhost";
         $this->username = "tasktracker_conn";
@@ -18,12 +21,24 @@ class DatabaseConnection {
         }
     }
 
+    /**
+     * Funkce pro vytoření spojení s databází
+     * 
+     * @return object $conn
+     */
     public function getConnection() {
         return $this->connection;
     }
 
+    /**
+     * Funkce pro ukončení spojení s databází
+     */
     public function closeConnection() {
         mysqli_close($this->connection);
     }
+
+
+
 }
+
 ?>

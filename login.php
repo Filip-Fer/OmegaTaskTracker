@@ -6,4 +6,5 @@
   <input type="password" id="password" name="password" required>
 
   <button type="submit">Přihlásit se</button>
+  <p>Nemáte účet. Registrujte se <a href="registration.php">zde</a></p>
 </form>
