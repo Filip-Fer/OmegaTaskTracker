@@ -2,20 +2,17 @@
 session_start();
 
 if (isset($_SESSION['user_id'])) {
+  include 'library.php';
+  getTaskHead();
 } else {
   header("Location: index.php");
   exit;
 }
 ?>
-<form action="processLogout.php" method="post">
-  <button type="submit" name="logout">Odhlásit se</button>
-</form>
-<a href="taskAdd.php">Přidat úkol</a>
-
-<h1>Vaše úkoly</h1>
-<ul>
+<h1 class="text-center">Vaše úkoly</h1>
+<ul class="list-group">
   <?php
-  include 'library.php';
+
   getFormatDate();
   getDB();
   getCustomSQL();
@@ -47,9 +44,11 @@ if (isset($_SESSION['user_id'])) {
 
 
 
-      echo "<li>";
-      echo "<input type=\"checkbox\" id=\"$id\" name=\"tasks[]\" value=\"\">";
-      echo "<label for=\"$id\">";
+      echo "<li class=\"list-group-item list-group-item-secondary\">";
+      echo "<div class=\"form-check\">";
+      echo "<input class=\"form-check-input\" type=\"checkbox\" id=\"$id\" name=\"tasks[]\" value=\"\">";
+      echo "<label class=\"form-check-label\" for=\"$id\">";
+      echo "</div>"
 
   ?>
       <h2><?php echo $name; ?></h2>
@@ -62,15 +61,16 @@ if (isset($_SESSION['user_id'])) {
   <?php
       echo "<form method='post' action='taskShare.php'>";
       echo "<input type='hidden' name='id' value='$id'>";
-      echo "<input type='submit' value='Sdílet úkol'>";
+      echo "<input class=\"btn btn-secondary mt-2\" type='submit' value='Sdílet úkol'>";
       echo "</form>";
 
       echo "<form method='post' action='taskUpdate.php'>";
       echo "<input type='hidden' name='id' value='$id'>";
-      echo "<input type='submit' value='Upravit úkol'>";
+      echo "<input class=\"btn btn-secondary mt-2\" type='submit' value='Upravit úkol'>";
       echo "</form>";
 
       echo "</label>";
+      echo "</div>";
       echo "</li>";
     }
   } else {
@@ -80,7 +80,7 @@ if (isset($_SESSION['user_id'])) {
   ?>
 </ul>
 
-<h1>Sdílené úkoly</h1>
+<h1 class="text-center pt-5">Sdílené úkoly</h1>
 <?php
 
 $sql = "SELECT * FROM shared_task WHERE user_id = $loggedUser";
@@ -111,9 +111,11 @@ if (mysqli_num_rows($result) > 0) {
 
 
 
-        echo "<li>";
+        echo "<li class=\"list-group-item list-group-item-secondary\">";
+        echo "<div class=\"form-check\">";
         echo "<input type=\"checkbox\" id=\"$id\" name=\"tasks[]\" value=\"\">";
         echo "<label for=\"$id\">";
+        echo "</div>"
 
 ?>
         <h2><?php echo $name; ?></h2>
@@ -133,7 +135,7 @@ if (mysqli_num_rows($result) > 0) {
   echo "<h3>V tuto chvíli s vámi nikdo nesdílí žádné úkoly</h3>";
 }
 
-$conn->closeConnection();
+$db->closeConnection();
 ?>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

@@ -43,3 +43,21 @@ if (!function_exists('getCompareStrings')) {
         include "tools/compareStrings.php";
     }
 }
+
+if (!function_exists('getIndexHead')) {
+    /**
+     * Funkce pro import hlavičky
+     */
+    function getIndexHead() {
+        include "body_parts/indexHead.php";
+    }
+}
+
+if (!function_exists('getTaskHead')) {
+    /**
+     * Funkce pro import hlavičky
+     */
+    function getTaskHead() {
+        include "body_parts/taskHead.php";
+    }
+}

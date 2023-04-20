@@ -1,4 +1,9 @@
 <?php
+/**
+ * Třída pro databázové spojení
+ * 
+ * @author Filip Ferencei
+ */
 class DatabaseConnection {
     private $host;
     private $username;

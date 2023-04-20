@@ -9,6 +9,12 @@
 function compare_strings($str1, $str2) {
     $str1 = strtolower($str1);
     $str2 = strtolower($str2);
-    $result = strcmp($str1, $str2);
-    return $result === 0;
+    $preresult = strcmp($str1, $str2);
+    if ($preresult == 0) {
+        $result = true;
+        return $result;
+    } else {
+        $result = false;
+        return $result;
+    }
 }

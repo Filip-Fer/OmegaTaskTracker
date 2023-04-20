@@ -30,13 +30,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (password_verify($password, $db_password)) {
       session_start();
       $_SESSION['user_id'] = $row['id'];
-      header('Location: ./tasks.php');
+      header('Location: tasks.php');
       exit();
     } else {
 
     $error = 'Přihlášení selhalo. Zkontrolujte přihlašovací údaje.';
     echo $error;
-    header('Location: ./login.php');
+    header('Location: login.php');
     }
   }
 }

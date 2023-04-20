@@ -100,7 +100,7 @@ function getUserByEmail($email, $conn) {
  * @return string $email
  */
 function getUserEmailById($id, $conn) {
-    $sql = "SELECT * FROM user WHERE email = '$id'";
+    $sql = "SELECT * FROM user WHERE id = $id";
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) > 0) {
@@ -139,7 +139,7 @@ function getTaskById($id, $conn) {
  * @return boolean $result
  */
 function emailExistsInDatabase($email, $conn) {
-    $sql = "SELECT COUNT(*) as count FROM users WHERE email = '$email'";
+    $sql = "SELECT COUNT(*) as count FROM user WHERE email = '$email'";
     $result = mysqli_query($conn, $sql);
 
     $row = mysqli_fetch_assoc($result);
@@ -162,7 +162,7 @@ function emailExistsInDatabase($email, $conn) {
  * @return boolean $result
  */
 function usernameExistsInDatabase($username, $conn) {
-    $sql = "SELECT COUNT(*) as count FROM users WHERE username = '$username'";
+    $sql = "SELECT COUNT(*) as count FROM user WHERE username = '$username'";
     $result = mysqli_query($conn, $sql);
 
     $row = mysqli_fetch_assoc($result);
@@ -177,5 +177,102 @@ function usernameExistsInDatabase($username, $conn) {
     }
 }
 
+/**
+ * Funkce pro získání user_id podle emailu
+ * 
+ * @param string $email
+ * @param object $conn
+ * @return integer $user_id
+ */
+function getUserIdByEmail($email, $conn) {
+    $sql = "SELECT * FROM user WHERE email = '$email'";
+    $result = mysqli_query($conn, $sql);
 
+    if (mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $user_id = $row['id'];
+            $username = $row['username'];
+            return $user_id;
+        }
+    }
+}  
+
+/**
+ * Funkce pro získání username podle emailu
+ * 
+ * @param string $email
+ * @param object $conn
+ * @return string $usernme
+ */
+function getUsernameByEmail($email, $conn) {
+    $sql = "SELECT username FROM user WHERE email = '$email'";
+    $result = mysqli_query($conn, $sql);
+
+    if (mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $username = $row['username'];
+            return $username;
+        }
+    }
+}  
+
+/**
+ * Funkce pro získání emailu podle username
+ * 
+ * @param string $username
+ * @param object $conn
+ * @return string $email
+ */
+function getUserEmailByUsername($username, $conn) {
+    $sql = "SELECT * FROM user WHERE username = '$username'";
+    $result = mysqli_query($conn, $sql);
+
+    if (mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $user_id = $row['id'];
+            $email = $row['email'];
+            return $email;
+        }
+    }
+}  
+
+/**
+ * Funkce pro získání tasku podle id
+ * 
+ * @param string $name
+ * @param object $conn
+ * @return integer $task_id
+ */
+function getTaskIdByName($name, $conn) {
+    $sql = "SELECT * FROM task WHERE name = '$name'";
+    $result = mysqli_query($conn, $sql);
+
+    if (mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $task_id = $row['id'];
+            $username = $row['username'];
+            return $task_id;
+        }
+    }
+}
+
+/**
+ * Funkce pro získání tasku podle id
+ * 
+ * @param string $description
+ * @param object $conn
+ * @return integer $task_id
+ */
+function getTaskIdByDescription($description, $conn) {
+    $sql = "SELECT * FROM task WHERE description = $description";
+    $result = mysqli_query($conn, $sql);
+
+    if (mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $task_id = $row['id'];
+            $username = $row['username'];
+            return $task_id;
+        }
+    }
+}
 ?>
